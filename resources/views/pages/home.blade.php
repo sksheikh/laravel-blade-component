@@ -13,26 +13,42 @@
         <div class="row">
             <div class="col-md-6 mx-auto">
 
-                <x-form action="" method="post">
+                <x-form action="{{ route('home.store')}}" method="post">
 
                     <!--email-->
                     <div class="mb-3">
-                      <x-forms.label type="email">Email Address</x-forms.label>
-                      <x-forms.input type="email" placeholder="Enter your email"/>
-                      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        <x-forms.label >Email Address</x-forms.label>
+                        <x-forms.input
+                        type="email"
+                        placeholder="Enter your email"
+                        name="email"/>
+
+                        @error('email')
+                        <x-forms.error :message="$message"/>
+                        @enderror
                     </div>
 
                     <!--password-->
                     <div class="mb-3">
-                      <label for="exampleInputPassword1" class="form-label">Password</label>
-                      <x-forms.input type="password"/>
+                        <x-forms.label >Password</x-forms.label>
+                        <x-forms.input
+                            type="password"
+                            name="password"
+                        />
+
+                        @error('password')
+                            <x-forms.error :message="$message"/>
+                        @enderror
 
                     </div>
                     <div class="mb-3 form-check">
                       <input type="checkbox" class="form-check-input" id="exampleCheck1">
                       <label class="form-check-label" for="exampleCheck1">Check me out</label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                    <!--button-->
+                    <x-button
+                        type="submit">Submit</x-button>
                 </x-form>
             </div>
         </div>

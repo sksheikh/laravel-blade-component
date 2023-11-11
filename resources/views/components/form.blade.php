@@ -1,5 +1,5 @@
 <div>
-    <form action="{{ $action }}" method="{{ $method}}">
+    <form {{ $attributes }}>
         @csrf
         {{ $slot}}
     </form>

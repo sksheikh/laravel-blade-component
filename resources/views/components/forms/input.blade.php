@@ -1,7 +1,4 @@
 <div>
-    <input type="{{ $type }}"
-        class="form-control"
-        placeholder="{{ $placeholder }}"
-        >
+    <input {{ $attributes->merge(['class' => 'form-control']) }} />
 
 </div>
